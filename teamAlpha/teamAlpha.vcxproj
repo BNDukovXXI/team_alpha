@@ -133,7 +133,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="teamAlpha.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mainMenu.h" />
+    <ClInclude Include="textures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
