@@ -6,7 +6,7 @@ void MainMenu(Texture2D loginButton, Texture2D regButton, Texture2D recoverButto
 {
 	BeginDrawing();
 	ClearBackground(RAYWHITE);
-	DrawText("Welcome To MyWill", 330, 200, 70, BLACK);
+	DrawText("Welcome To MyWill", 500, 100, 100, BLACK);
 	DrawTexture(loginButton, 1920.0f / 1.9f, 350, WHITE);
 	DrawText("Log In", 1920.0f / 1.75f, 380, 70, BLACK);
 	DrawTexture(regButton, 1920.0f / 1.9f, 500, WHITE);
