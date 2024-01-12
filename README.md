@@ -14,4 +14,4 @@ You can install our project by using this link:
 3. Todor Ivanov - ***Back-end Developer***
 4. Boris Belberov - ***Designer***
 
-## <img align="center" src="https://cdn-icons-png.flaticon.com/256/1130/1130078.png" width="30"> Used technologies:
+## <img align="center" src="https://cdn-icons-png.flaticon.com/256/1130/1130078.png" width="30"> Used technologies
