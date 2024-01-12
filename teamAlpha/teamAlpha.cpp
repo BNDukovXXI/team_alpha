@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    int balance = 5000000;
+    int balance = 10;
     int fontSize = 105;
     if (balance < 1000) fontSize = 115;
     else if (balance < 10000) fontSize = 110;
@@ -46,11 +46,13 @@ int main()
             switch (selectedBtn)
             {
             case 1:MainMenu(buttonSelected, buttonUnselected, buttonUnselected, logo); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 1; break;
-            case 2:MainMenu(buttonUnselected, buttonSelected, buttonUnselected, logo); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); break;
-            case 3: MainMenu(buttonUnselected, buttonUnselected, buttonSelected, logo); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); break;
+            case 2:MainMenu(buttonUnselected, buttonSelected, buttonUnselected, logo); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 2; break;
+            case 3: MainMenu(buttonUnselected, buttonUnselected, buttonSelected, logo); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 3; break;
             default: MainMenu(buttonUnselected, buttonUnselected, buttonUnselected, logo); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
             } break;
         case 1: drawProgram("User", balance, fontSize); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
+        case 2: drawProgram1("User", balance, fontSize); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
+        case 3: drawProgram2("User", balance, fontSize); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
         default: appState = 0;
         }
     }
