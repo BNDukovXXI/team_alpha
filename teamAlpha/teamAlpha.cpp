@@ -25,6 +25,7 @@ int main()
     InitWindow(screenWidth, screenHeight, "MyWill Platform");
     SetTargetFPS(60);
     LoadTextures();
+    Font font1 = LoadFont("resources\\PetrovSans-Regular.ttf");
     while (!WindowShouldClose())
     {
         Rectangle mousePos = { GetMouseX(), GetMouseY(), 10,10 };
@@ -37,7 +38,7 @@ int main()
         }
         if (GetCharPressed() == 32)
         {
-            MainMenu(buttonUnselected, buttonUnselected, buttonUnselected, logo);
+            MainMenu(buttonUnselected, buttonUnselected, buttonUnselected, logo, font1);
             appState = 0;
         }
         switch (appState)
@@ -45,14 +46,14 @@ int main()
         case 0:
             switch (selectedBtn)
             {
-            case 1:MainMenu(buttonSelected, buttonUnselected, buttonUnselected, logo); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 1; break;
-            case 2:MainMenu(buttonUnselected, buttonSelected, buttonUnselected, logo); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 2; break;
-            case 3: MainMenu(buttonUnselected, buttonUnselected, buttonSelected, logo); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 3; break;
-            default: MainMenu(buttonUnselected, buttonUnselected, buttonUnselected, logo); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
+            case 1:MainMenu(buttonSelected, buttonUnselected, buttonUnselected, logo, font1); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 1; break;
+            case 2:MainMenu(buttonUnselected, buttonSelected, buttonUnselected, logo, font1); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 2; break;
+            case 3: MainMenu(buttonUnselected, buttonUnselected, buttonSelected, logo, font1); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);  if (isClicked) appState = 3;  break;
+            default: MainMenu(buttonUnselected, buttonUnselected, buttonUnselected, logo, font1); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
             } break;
-        case 1: drawProgram("User", balance, fontSize); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
-        case 2: drawProgram1("User", balance, fontSize); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
-        case 3: drawProgram2("User", balance, fontSize); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
+        case 1: drawProgram("User", balance, fontSize); break;
+        case 2: drawProgram1("User", balance, fontSize); break;
+        case 3: drawProgram2("User", balance, fontSize, buttonUnselected2, font1); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
         default: appState = 0;
         }
     }
