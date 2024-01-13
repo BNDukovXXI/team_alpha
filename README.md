@@ -13,7 +13,7 @@ You can install our project by using this link:
 ## <img align="center" src="https://cdn.iconscout.com/icon/free/png-256/free-team-1543514-1306008.png" width="30">   Team members
 | Iva Nedkova  | Bozhidar Dukov | Todor Ivanov | Boris Belberov |
 | :---: | :---: | :---: | :---: |
-| [INNedkova21](https://website-name.com)  | [BNDukov21](https://github.com/BNDukovXXI) | [TPIvanov21](https://github.com/TPIvanov21) | [BRBelberov21](https://github.com/BRBelberov21)  |
+| [INNedkova21](https://github.com/INNedkova21)  | [BNDukov21](https://github.com/BNDukovXXI) | [TPIvanov21](https://github.com/TPIvanov21) | [BRBelberov21](https://github.com/BRBelberov21)  |
 | Scrum Trainer | Back-end Developer | Back-end Developer | Designer |
 
 
