@@ -1,3 +1,5 @@
+<div align="center"><img src="/images/logo.png" width=30%> </div>
+
 ## <img align="center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ72_lEbtgFwctIexFCIn8lD5FCJAe5Pve-s7lc-2LuBU4OSzN" width="30"> About
 
 ## <img align="center" src="https://cdn1.iconfinder.com/data/icons/miscellaneous-5-color-shadow/128/demo_beta_demonstration-512.png" width="30"> Demo of our project
