@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="recoverAss.cpp" />
+    <ClCompile Include="myWill.cpp" />
     <ClCompile Include="wallet.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="mainMenu.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="teamAlpha.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="myWill.h" />
     <ClInclude Include="recoverAss.h" />
     <ClInclude Include="wallet.h" />
     <ClInclude Include="login.h" />

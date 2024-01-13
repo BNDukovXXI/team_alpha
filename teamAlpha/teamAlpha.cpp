@@ -6,6 +6,7 @@
 #include "login.h"
 #include "signUp.h"
 #include "recoverAss.h"
+#include "myWill.h"
 using namespace std;
 
 int main()
@@ -96,9 +97,10 @@ int main()
             if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
             else SetMouseCursor(MOUSE_CURSOR_ARROW);
             if (isSelectedButton && isClicked) {
-                appState = 0; textInputUser = ""; textInputPass = "";
+                appState = 5; textInputUser = ""; textInputPass = "";
             }
             break;
+        case 5: myWill(font1); break;
         default: appState = 0;
         }
     }
