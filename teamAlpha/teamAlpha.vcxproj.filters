@@ -30,6 +30,9 @@
     <ClCompile Include="signUp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="recoverAss.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="textures.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="signUp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="recoverAss.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

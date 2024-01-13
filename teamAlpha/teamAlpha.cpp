@@ -5,6 +5,7 @@
 #include "wallet.h"
 #include "login.h"
 #include "signUp.h"
+#include "recoverAss.h"
 using namespace std;
 
 int main()
@@ -55,7 +56,7 @@ int main()
             {
             case 1:MainMenu(buttonSelected, buttonUnselected, buttonUnselected, logo, font1); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 1; break;
             case 2:MainMenu(buttonUnselected, buttonSelected, buttonUnselected, logo, font1); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 2; break;
-            case 3: MainMenu(buttonUnselected, buttonUnselected, buttonSelected, logo, font1); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);  if (isClicked) appState = 3;  break;
+            case 3:MainMenu(buttonUnselected, buttonUnselected, buttonSelected, logo, font1); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 3;  break;
             default: MainMenu(buttonUnselected, buttonUnselected, buttonUnselected, logo, font1); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
             } break;
 
@@ -69,7 +70,7 @@ int main()
             if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
             else SetMouseCursor(MOUSE_CURSOR_ARROW); 
             if (isSelectedButton && isClicked) {
-                appState = 3; textInputPass = ""; textInputUser = "";
+                appState = 0; textInputPass = ""; textInputUser = "";
             }
             break;
             
@@ -86,7 +87,18 @@ int main()
                 appState = 0; textInputUser = ""; textInputPass = "";
             }
             break;
-        case 3: WalletMenu("User", balance, fontSize, buttonUnselected2, font1); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
+        case 3: recoverAssetsMenu("User", balance, fontSize, font1); SetMouseCursor(MOUSE_CURSOR_ARROW);
+            if (CheckCollisionRecs(userRec, mousePos)) isSelectedUser = true;
+            else isSelectedUser = false;
+            if (CheckCollisionRecs(passRec, mousePos)) isSelectedPass = true;
+            else isSelectedPass = false;
+            if (CheckCollisionRecs(login_signupButtonRec, mousePos)) isSelectedButton = true; else isSelectedButton = false;
+            if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+            else SetMouseCursor(MOUSE_CURSOR_ARROW);
+            if (isSelectedButton && isClicked) {
+                appState = 0; textInputUser = ""; textInputPass = "";
+            }
+            break;
         default: appState = 0;
         }
     }
