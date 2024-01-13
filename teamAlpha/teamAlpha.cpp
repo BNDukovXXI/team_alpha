@@ -2,11 +2,14 @@
 #include <iostream>
 #include "mainMenu.h"
 #include "textures.h"
-#include "App.h"
+#include "wallet.h"
+#include "login.h"
+#include "signUp.h"
 using namespace std;
 
 int main()
 {
+    
     int balance = 10;
     int fontSize = 105;
     if (balance < 1000) fontSize = 115;
@@ -18,6 +21,9 @@ int main()
     Rectangle loginBtnRec = { 1920.0f / 1.9f, 350, 390, 100 };
     Rectangle regBtnRec = { 1920.0f / 1.9f, 500, 390, 100 };
     Rectangle recBtnRec = { 1920.0f / 1.9f, 650, 390, 100 };
+    Rectangle userRec = { 650, 475, 600, 85 };
+    Rectangle passRec = { 650, 600, 600, 85 };
+    Rectangle login_signupButtonRec = { 850, 775, 200, 85 };
     const int screenWidth = 1920;
     const int screenHeight = 1080;
     int appState = 0;
@@ -44,6 +50,7 @@ int main()
         switch (appState)
         {
         case 0:
+
             switch (selectedBtn)
             {
             case 1:MainMenu(buttonSelected, buttonUnselected, buttonUnselected, logo, font1); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); if (isClicked) appState = 1; break;
@@ -51,9 +58,35 @@ int main()
             case 3: MainMenu(buttonUnselected, buttonUnselected, buttonSelected, logo, font1); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);  if (isClicked) appState = 3;  break;
             default: MainMenu(buttonUnselected, buttonUnselected, buttonUnselected, logo, font1); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
             } break;
-        case 1: drawProgram("User", balance, fontSize); break;
-        case 2: drawProgram1("User", balance, fontSize); break;
-        case 3: drawProgram2("User", balance, fontSize, buttonUnselected2, font1); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
+
+        case 1:
+            LoginMenu("User", balance, fontSize, font1);
+            if (CheckCollisionRecs(userRec, mousePos)) isSelectedUser = true;
+            else isSelectedUser = false;
+            if (CheckCollisionRecs(passRec, mousePos)) isSelectedPass = true;
+            else isSelectedPass = false;
+            if (CheckCollisionRecs(login_signupButtonRec, mousePos)) isSelectedButton = true; else isSelectedButton = false;
+            if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+            else SetMouseCursor(MOUSE_CURSOR_ARROW); 
+            if (isSelectedButton && isClicked) {
+                appState = 3; textInputPass = ""; textInputUser = "";
+            }
+            break;
+            
+        case 2: 
+            SignUpMenu("User", balance, fontSize, font1); SetMouseCursor(MOUSE_CURSOR_ARROW);
+            if (CheckCollisionRecs(userRec, mousePos)) isSelectedUser = true;
+            else isSelectedUser = false;
+            if (CheckCollisionRecs(passRec, mousePos)) isSelectedPass = true;
+            else isSelectedPass = false;
+            if (CheckCollisionRecs(login_signupButtonRec, mousePos)) isSelectedButton = true; else isSelectedButton = false;
+            if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+            else SetMouseCursor(MOUSE_CURSOR_ARROW);
+            if (isSelectedButton && isClicked) {
+                appState = 0; textInputUser = ""; textInputPass = "";
+            }
+            break;
+        case 3: WalletMenu("User", balance, fontSize, buttonUnselected2, font1); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
         default: appState = 0;
         }
     }

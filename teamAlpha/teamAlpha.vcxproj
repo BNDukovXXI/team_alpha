@@ -133,13 +133,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="App.cpp" />
+    <ClCompile Include="wallet.cpp" />
+    <ClCompile Include="login.cpp" />
     <ClCompile Include="mainMenu.cpp" />
+    <ClCompile Include="signUp.cpp" />
     <ClCompile Include="teamAlpha.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="App.h" />
+    <ClInclude Include="wallet.h" />
+    <ClInclude Include="login.h" />
     <ClInclude Include="mainMenu.h" />
+    <ClInclude Include="signUp.h" />
     <ClInclude Include="textures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
