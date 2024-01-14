@@ -136,7 +136,7 @@ int main()
             if (isSelectedManageBtn && isClicked) appState = 5; 
             if (isSelectedAddBtn && isClicked)
             {
-                addAsset();
+                addAsset(); 
                 counter++;
             }
             if (isSelectedWalletBtn && isClicked)
@@ -154,6 +154,8 @@ int main()
             break;
         case 5:
             myWill(font1, mousePos, triangle);
+            if (isSelectedAddHeir && isClicked) addHeir();
+            if (isSelectedAddHeirAsset && isClicked) addHeirAsset();
             break;
         default: appState = 0;
         }

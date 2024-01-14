@@ -1,5 +1,12 @@
 #include <raylib.h>
 #include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+int heirCounter, heirAssetCounter; int shownHeirs = 3;
+bool isSelectedAddHeir, isSelectedAddHeirAsset;
+vector <string> heirs = { "My Heir #1", "My Heir #2", "My Heir #3", "My Heir #4", "My Heir #5", "My Heir #6"};
+vector <string> heirAssets = { "My Heir's Asset #1", "My Heir's Asset #2", "My Heir's Asset #3", "My Heir's Asset #4", "My Heir's Asset #5", "My Heir's Asset #6" };
 void myWill(Font font, Rectangle mousePos, Texture2D triangle)
 {
 	Color c1 = WHITE, c2 = WHITE;
@@ -8,11 +15,13 @@ void myWill(Font font, Rectangle mousePos, Texture2D triangle)
 	{
 		c1 = LIGHTGRAY;
 		SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+		
 	}
 	else if (CheckCollisionRecs(mousePos, assetsBtn))
 	{
 		c2 = LIGHTGRAY;
 		SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+		
 	}
 	else if (!CheckCollisionRecs(mousePos, heirArrowUp) && !CheckCollisionRecs(mousePos, heirArrowDown) && !CheckCollisionRecs(mousePos, assetArrowUp) && !CheckCollisionRecs(mousePos, assetArrowDown))
 	{
@@ -23,6 +32,17 @@ void myWill(Font font, Rectangle mousePos, Texture2D triangle)
 	{
 		SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
 	}
+	if (CheckCollisionRecs(mousePos, assetsBtn)) isSelectedAddHeirAsset = true; else isSelectedAddHeirAsset = false;
+	if (CheckCollisionRecs(mousePos, heirBtn)) isSelectedAddHeir = true; else isSelectedAddHeir = false;
+	if (CheckCollisionRecs(mousePos, heirArrowUp) && heirCounter != 0 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		heirCounter--;
+	if (CheckCollisionRecs(mousePos, heirArrowDown) && heirCounter < (heirs.size() - 2) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		heirCounter++;
+	if (CheckCollisionRecs(mousePos, assetArrowUp) && heirAssetCounter != 0 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		heirAssetCounter--;
+	if (CheckCollisionRecs(mousePos, assetArrowDown) && heirAssetCounter < (heirAssets.size() - 2) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		heirAssetCounter++;
+	
 	BeginDrawing();
 	ClearBackground(WHITE);
 	DrawLineBezier({ 360, 800 }, { 760, 800 }, 5, BLACK);
@@ -53,9 +73,29 @@ void myWill(Font font, Rectangle mousePos, Texture2D triangle)
 	DrawRectangleRoundedLines(Rectangle{ 880, 460, 630, 100 }, 0.2, 0, 7, BLACK);
 	DrawRectangleRoundedLines(Rectangle{ 880, 580, 630, 100 }, 0.2, 0, 7, BLACK);
 	DrawRectangleRoundedLines(Rectangle{ 880, 750, 630, 100 }, 0.2, 0, 7, BLACK);
+	DrawTextEx(font, heirs[heirCounter].c_str(), {440, 370}, 50, 5, BLACK);
+	DrawTextEx(font, heirs[heirCounter + 1].c_str(), { 440, 490 }, 50, 5, BLACK);
+	DrawTextEx(font, heirs[heirCounter + 2].c_str(), { 440, 610 }, 50, 5, BLACK);
+	DrawTextEx(font, heirAssets[heirAssetCounter].c_str(), { 885, 370 }, 50, 5, BLACK);
+	DrawTextEx(font, heirAssets[heirAssetCounter + 1].c_str(), { 885, 490 }, 50, 5, BLACK);
+	DrawTextEx(font, heirAssets[heirAssetCounter + 2].c_str(), { 885, 610 }, 50, 5, BLACK);
 	DrawTextEx(font, "MyHeirs", { 450, 200 }, 60, 5, BLACK);
 	DrawTextEx(font, "Heir's Assets", { 1050, 200 }, 60, 5, BLACK);
 	DrawTextEx(font, "Add Heirs", { 430, 780 }, 60, 5, BLACK);
 	DrawTextEx(font, "Add Assets", { 1070, 780 }, 60, 5, BLACK);
 	EndDrawing();
+}
+void addHeir()
+{
+	string temp;
+	cout << "Enter New Heir: " << endl;
+	getline(std::cin, temp);
+	heirs.push_back(temp);
+}
+void addHeirAsset()
+{
+	string temp;
+	cout << "Enter New Heir Asset: " << endl;
+	getline(std::cin, temp);
+	heirAssets.push_back(temp);
 }
