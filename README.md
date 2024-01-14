@@ -33,6 +33,8 @@ You can install our project by using this link:
 | [INNedkova21](https://github.com/INNedkova21)  | [BNDukov21](https://github.com/BNDukovXXI) | [TPIvanov21](https://github.com/TPIvanov21) | [BRBelberov21](https://github.com/BRBelberov21)  |
 | Scrum Trainer | Back-end Developer | Back-end Developer | Designer |
 
+## <img align="center" src="https://cdn-icons-png.flaticon.com/512/3396/3396255.png" width="30">   Documents
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg.png?20210821050414" width="20">  [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/innedkova21_codingburgas_bg/ET6LjRYcekJMhsTkgZxU3VIB7MVt5kE4XYgD9U1vRHgk-g?e=JRnbnW)
 
 ## <img align="center" src="https://cdn-icons-png.flaticon.com/256/1130/1130078.png" width="30"> Used technologies
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/640px-ISO_C%2B%2B_Logo.svg.png" width="20">  C++
