@@ -107,7 +107,14 @@ int main()
             if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
             else SetMouseCursor(MOUSE_CURSOR_ARROW);
             if (isSelectedButton && isClicked) {
-                appState = 0; textInputUser = ""; textInputPass = "";
+                if (isLoginValid())
+                {
+                    cout << "Login Successful" << endl;
+                    appState = 5;
+                }
+                else cout << "Not successful" << endl;
+                textInputPass = ""; textInputUser = "";
+
             }
             break;
         case 4:
@@ -146,22 +153,7 @@ int main()
             }
             break;
         case 5:
-            myWill(font1);
-            if (CheckCollisionRecs(walletBtn, mousePos)) isSelectedWalletBtn = true; else isSelectedWalletBtn = false;
-            if (isSelectedWalletBtn && isClicked) appState = 4;
-            if (isSelectedWalletBtn || isSelectedManageBtn) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
-            if (isSelectedAssetBtn && isClicked)
-            {
-                isClickedAssets = true;
-                isClickedLiabilities = false;
-            }
-            if (isSelectedLiabBtn && isClicked)
-            {
-                isClickedLiabilities = true;
-                isClickedAssets = false;
-            }
-            else SetMouseCursor(MOUSE_CURSOR_ARROW);
-            
+            myWill(font1, mousePos, triangle);
             break;
         default: appState = 0;
         }
