@@ -1,8 +1,15 @@
 <div align="center"><img src="/images/logo.png" width=35%> </div>
 
 ## <img align="center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ72_lEbtgFwctIexFCIn8lD5FCJAe5Pve-s7lc-2LuBU4OSzN" width="30"> About
+<p>
+   Our idea is to create a platform where you can manage your assets and create your digital will fast and easy.  
+</p>
 
 ## <img align="center" src="https://cdn1.iconfinder.com/data/icons/miscellaneous-5-color-shadow/128/demo_beta_demonstration-512.png" width="30"> Demo of our project
+<div align = "center">
+  <img src="images/demo1.png" width=900px>
+  <img src="images/demo3.png" width=900px>
+</div>
 
 ## <img align="center" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTa1P187cCCVTmQNHlbP0K1oaiemcN6xXSQEc1BmcgSdXBE3uhm" width="30"> Installing
 You can install our project by using this link:
@@ -27,3 +34,4 @@ You can install our project by using this link:
 - <img src="https://findicons.com/files/icons/2795/office_2013_hd/2000/word.png" width="20">  Word
 - <img src="https://findicons.com/files/icons/2795/office_2013_hd/2000/excel.png" width="20">  Excel
 - <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="20">  Figma
+- <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Raylib_logo.png" width="20">  Raylib
