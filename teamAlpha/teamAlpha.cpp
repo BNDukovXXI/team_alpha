@@ -13,7 +13,7 @@ using namespace std;
 int main()
 {
 
-    int balance = 10;
+    float balance = 0;
     int fontSize = 105;
     int counter = 3;
    
@@ -132,12 +132,34 @@ int main()
                 addAsset();
                 counter++;
             }
+            if (isSelectedWalletBtn && isClicked)
+            {
+                appState = 0;
+                balance = 0;
+            }
+            if (isSelectedAddCash && isClicked)
+            {
+                float sum;
+                cout << "Enter sum to add in wallet: " << endl;
+                cin >> sum;
+                balance += sum;
+            }
             break;
         case 5:
             myWill(font1);
             if (CheckCollisionRecs(walletBtn, mousePos)) isSelectedWalletBtn = true; else isSelectedWalletBtn = false;
             if (isSelectedWalletBtn && isClicked) appState = 4;
             if (isSelectedWalletBtn || isSelectedManageBtn) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+            if (isSelectedAssetBtn && isClicked)
+            {
+                isClickedAssets = true;
+                isClickedLiabilities = false;
+            }
+            if (isSelectedLiabBtn && isClicked)
+            {
+                isClickedLiabilities = true;
+                isClickedAssets = false;
+            }
             else SetMouseCursor(MOUSE_CURSOR_ARROW);
             
             break;

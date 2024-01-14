@@ -8,7 +8,11 @@ Rectangle balanceRec { 100, 350, 800, 500 };
 Rectangle assetRec{ 1000, 200, 800, 800 };
 bool isSelectedExitBtn, isSelectedManageBtn, isSelectedWalletBtn, isSelectedAddBtn, isSelectedLiabBtn, isSelectedAssetBtn, isSelectedAddCash, isSelectedTriangleTop, isSelectedTriangleBottom;
 int assetCounter;
-vector <const char*> assets = { "1","2","3","4","5","6" };
+bool isClickedLiabilities, isClickedAssets, isUpdatedAssets, isUpdatedLiabilities;
+vector <string> assets = {"My Asset #1", "My Asset #2", "My Asset #3", "My Asset #4", "My Asset #5", "My Asset #6"};
+vector <string> liabilities = { "My Liability #1", "My Liability #2", "My Liability #3", "My Liability #4", "My Liability #5", "My Liability #6" };
+vector <string> currentShown = assets;
+	
 void WalletMenu(float currentBalance, int fontSize, Font font, Texture2D triangle)
 {
 	Color c1, c2, c3, c4, c5, c6, c7;
@@ -19,7 +23,18 @@ void WalletMenu(float currentBalance, int fontSize, Font font, Texture2D triangl
 	if (isSelectedAssetBtn) c5 = LIGHTGRAY; else c5 = RAYWHITE;
 	if (isSelectedLiabBtn) c6 = LIGHTGRAY; else c6 = RAYWHITE;
 	if (isSelectedAddBtn) c7 = LIGHTGRAY; else c7 = RAYWHITE;
-
+	if (isSelectedLiabBtn && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+	{
+		currentShown = liabilities;
+		isClickedLiabilities = true;
+		isClickedAssets - false;
+	}
+	if (isSelectedAssetBtn && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+	{
+		currentShown = assets;
+		isClickedLiabilities = false;
+		isClickedAssets = true;
+	}
 	BeginDrawing();
 	ClearBackground(LIGHTGRAY);
 	DrawRectangle(0, 0, 1920, 120, DARKBLUE);
@@ -44,7 +59,7 @@ void WalletMenu(float currentBalance, int fontSize, Font font, Texture2D triangl
 	DrawRectangleRoundedLines({ 1600, 30, 280,80 }, 0.2, 0, 5, BLACK);
 	DrawRectangleRounded({ 350, 760, 280,80 }, 0.2, 0, c4);
 	DrawRectangleRoundedLines({ 350, 760, 280,80 }, 0.2, 0, 5, BLACK);
-	DrawTextEx(font, "Wallet", Vector2{ 80, 40 }, 60, 1, BLACK);
+	DrawTextEx(font, "Logout", Vector2{ 80, 40 }, 60, 1, BLACK);
 	DrawTextEx(font, "Manage Will", Vector2{ 370, 45 }, 50, 1, BLACK);
 	DrawTextEx(font, "Exit", Vector2{ 1700, 40 }, 60, 1, BLACK);
 	DrawTextEx(font, "Assets", Vector2{ 1115, 220 }, 60, 1, BLACK);
@@ -60,9 +75,9 @@ void WalletMenu(float currentBalance, int fontSize, Font font, Texture2D triangl
 	DrawRectangleRoundedLines({ 1020, 680, 755,130 }, 0.2, 0, 3, BLACK);
 	DrawTriangle({ 1400, 320 }, { 1360,370 }, { 1440,370 }, DARKBLUE);
 	DrawTexture(triangle, 1360, 820, RAYWHITE);
-	DrawTextEx(font, assets[assetCounter], { 1020, 380 }, 100, 0, BLACK);
-	DrawTextEx(font, assets[assetCounter+1], { 1020, 530 }, 100, 0, BLACK);
-	DrawTextEx(font, assets[assetCounter+2], { 1020, 680 }, 100, 0, BLACK);
+	DrawTextEx(font, currentShown[assetCounter].c_str(), { 1025, 415 }, 60, 0, BLACK);
+	DrawTextEx(font, currentShown[assetCounter + 1].c_str(), { 1025, 565 }, 60, 0, BLACK);
+	DrawTextEx(font, currentShown[assetCounter + 2].c_str(), { 1025, 715 }, 60, 0, BLACK);
 	DrawLineBezier(Vector2{ 1000, 300 }, Vector2{ 1800, 300 }, 5, BLACK); // split line top
 	DrawLineBezier(Vector2{ 1000,900 }, Vector2{ 1800,900 }, 5, BLACK); // split line bottom
 	DrawLineBezier(Vector2{ 100,500 }, Vector2{ 900,500 }, 5, BLACK);
@@ -74,6 +89,7 @@ void addAsset()
 {
 	string temp;
 	cout << "Enter New Asset: " << endl;
-	cin >> temp;
-    assets.push_back(temp.c_str());
+	getline(std::cin, temp);
+    assets.push_back(temp);
+	currentShown.push_back(temp);	
 }
