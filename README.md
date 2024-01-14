@@ -1,4 +1,14 @@
 <div align="center"><img src="/images/logo.png" width=35%> </div>
+<div align="center">
+<img src = "https://img.shields.io/github/contributors/INNedkova21/team_alpha?style=for-the-badge">
+<img src = "https://img.shields.io/github/languages/count/INNedkova21/team_alpha?style=for-the-badge">
+<img src = "https://img.shields.io/github/languages/top/INNedkova21/team_alpha?style=for-the-badge&color=yellow">
+<img src = "https://img.shields.io/github/repo-size/INNedkova21/team_alpha?style=for-the-badge&color=orange">
+<img src = "https://img.shields.io/github/stars/INNedkova21/team_alpha?style=for-the-badge&color=%2367B7D1">
+<img src = "https://img.shields.io/github/last-commit/INNedkova21/team_alpha/main?style=for-the-badge">
+
+</div>
+
 
 ## <img align="center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ72_lEbtgFwctIexFCIn8lD5FCJAe5Pve-s7lc-2LuBU4OSzN" width="30"> About
 <p>
