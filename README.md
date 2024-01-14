@@ -35,3 +35,12 @@ You can install our project by using this link:
 - <img src="https://findicons.com/files/icons/2795/office_2013_hd/2000/excel.png" width="20">  Excel
 - <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="20">  Figma
 - <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Raylib_logo.png" width="20">  Raylib
+
+<div align = "center">
+   <p>
+      If you like our project, you can rate us by giving us a <img src="https://cdn-icons-png.flaticon.com/512/7408/7408613.png" width="20">
+   </p>
+   <p>
+      Thanks! <img src="https://cdn.iconscout.com/icon/free/png-256/free-heart-56-76703.png" width="20">
+   </p>
+</div>
