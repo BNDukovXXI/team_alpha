@@ -6,7 +6,6 @@
 <img src = "https://img.shields.io/github/repo-size/INNedkova21/team_alpha?style=for-the-badge&color=orange">
 <img src = "https://img.shields.io/github/stars/INNedkova21/team_alpha?style=for-the-badge&color=%2367B7D1">
 <img src = "https://img.shields.io/github/last-commit/INNedkova21/team_alpha/main?style=for-the-badge">
-
 </div>
 
 
@@ -15,11 +14,13 @@
    Our idea is to create a platform where you can manage your assets and create your digital will fast and easy.  
 </p>
 
+
 ## <img align="center" src="https://cdn1.iconfinder.com/data/icons/miscellaneous-5-color-shadow/128/demo_beta_demonstration-512.png" width="30"> Demo of our project
 <div align = "center">
   <img src="images/demo1.png" width=900px>
   <img src="images/demo3.png" width=900px>
 </div>
+
 
 ## <img align="center" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTa1P187cCCVTmQNHlbP0K1oaiemcN6xXSQEc1BmcgSdXBE3uhm" width="30"> Installing
 You can install our project by using this link:
@@ -27,14 +28,18 @@ You can install our project by using this link:
    https://github.com/INNedkova21/team_alpha.git
 ```
 
+
 ## <img align="center" src="https://cdn.iconscout.com/icon/free/png-256/free-team-1543514-1306008.png" width="30">   Team members
 | Iva Nedkova  | Bozhidar Dukov | Todor Ivanov | Boris Belberov |
 | :---: | :---: | :---: | :---: |
 | [INNedkova21](https://github.com/INNedkova21)  | [BNDukov21](https://github.com/BNDukovXXI) | [TPIvanov21](https://github.com/TPIvanov21) | [BRBelberov21](https://github.com/BRBelberov21)  |
 | Scrum Trainer | Back-end Developer | Back-end Developer | Designer |
 
+
 ## <img align="center" src="https://cdn-icons-png.flaticon.com/512/3396/3396255.png" width="30">   Documents
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg.png?20210821050414" width="20">  [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/innedkova21_codingburgas_bg/ET6LjRYcekJMhsTkgZxU3VIB7MVt5kE4XYgD9U1vRHgk-g?e=JRnbnW)
+- <img src="https://findicons.com/files/icons/2795/office_2013_hd/2000/word.png" width="20"> [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/innedkova21_codingburgas_bg/EaqTRT6sgxVErrmR72XMtQwBpAb12_OIxrkZDpvE2qxGow?e=PmvrEf)
+
 
 ## <img align="center" src="https://cdn-icons-png.flaticon.com/256/1130/1130078.png" width="30"> Used technologies
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/640px-ISO_C%2B%2B_Logo.svg.png" width="20">  C++
@@ -47,6 +52,7 @@ You can install our project by using this link:
 - <img src="https://findicons.com/files/icons/2795/office_2013_hd/2000/excel.png" width="20">  Excel
 - <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="20">  Figma
 - <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Raylib_logo.png" width="20">  Raylib
+
 
 <div align = "center">
    <p>
