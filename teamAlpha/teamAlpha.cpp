@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include <iostream>
+#include <string>
 #include "mainMenu.h"
 #include "textures.h"
 #include "wallet.h"
@@ -14,6 +15,8 @@ int main()
 
     int balance = 10;
     int fontSize = 105;
+    int counter = 3;
+   
     if (balance < 1000) fontSize = 115;
     else if (balance < 10000) fontSize = 110;
     else if (balance < 100000) fontSize = 105;
@@ -71,9 +74,13 @@ int main()
             if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
             else SetMouseCursor(MOUSE_CURSOR_ARROW);
             if (isSelectedButton && isClicked) {
-                if (isLoginValid()) cout << "Login Successful";
-                else cout << "Not successful";
-                appState = 4; textInputPass = ""; textInputUser = "";
+                if (isLoginValid())
+                {
+                    cout << "Login Successful" << endl;
+                    appState = 4;
+                }
+                else cout << "Not successful" << endl;
+                textInputPass = ""; textInputUser = "";
             }
             break;
 
@@ -104,7 +111,7 @@ int main()
             }
             break;
         case 4:
-            WalletMenu("User", balance, fontSize, font1, triangle);
+            WalletMenu(balance, fontSize, font1, triangle);
             if (CheckCollisionRecs(exitBtn, mousePos)) isSelectedExitBtn = true; else isSelectedExitBtn = false;
             if (CheckCollisionRecs(manageBtn, mousePos)) isSelectedManageBtn = true; else isSelectedManageBtn = false;
             if (CheckCollisionRecs(walletBtn, mousePos)) isSelectedWalletBtn = true; else isSelectedWalletBtn = false;
@@ -118,8 +125,13 @@ int main()
             if (CheckCollisionRecs(topTriangleBtn, mousePos)) isSelectedTriangleTop = true; else isSelectedTriangleTop = false;
             if (CheckCollisionRecs(botTriangleBtn, mousePos)) isSelectedTriangleBottom = true; else isSelectedTriangleBottom = false;
             if (isSelectedTriangleTop && isClicked && assetCounter != 0) assetCounter--;
-            if (isSelectedTriangleBottom && isClicked && assetCounter < 3) assetCounter++;
-            if (isSelectedManageBtn && isClicked) appState = 5;
+            if (isSelectedTriangleBottom && isClicked && assetCounter < counter) assetCounter++;
+            if (isSelectedManageBtn && isClicked) appState = 5; 
+            if (isSelectedAddBtn && isClicked)
+            {
+                addAsset();
+                counter++;
+            }
             break;
         case 5:
             myWill(font1);
@@ -127,6 +139,7 @@ int main()
             if (isSelectedWalletBtn && isClicked) appState = 4;
             if (isSelectedWalletBtn || isSelectedManageBtn) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
             else SetMouseCursor(MOUSE_CURSOR_ARROW);
+            
             break;
         default: appState = 0;
         }

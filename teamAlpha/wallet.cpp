@@ -1,11 +1,15 @@
 #include <raylib.h>
+#include <iostream>
 #include <string>
+#include "login.h"
+#include <vector>
 using namespace std;
 Rectangle balanceRec { 100, 350, 800, 500 };
 Rectangle assetRec{ 1000, 200, 800, 800 };
 bool isSelectedExitBtn, isSelectedManageBtn, isSelectedWalletBtn, isSelectedAddBtn, isSelectedLiabBtn, isSelectedAssetBtn, isSelectedAddCash, isSelectedTriangleTop, isSelectedTriangleBottom;
 int assetCounter;
-void WalletMenu(const char* user, float currentBalance, int fontSize, Font font, Texture2D triangle)
+vector <const char*> assets = { "1","2","3","4","5","6" };
+void WalletMenu(float currentBalance, int fontSize, Font font, Texture2D triangle)
 {
 	Color c1, c2, c3, c4, c5, c6, c7;
 	if (isSelectedWalletBtn) c1 = LIGHTGRAY; else c1 = RAYWHITE;
@@ -19,7 +23,7 @@ void WalletMenu(const char* user, float currentBalance, int fontSize, Font font,
 	BeginDrawing();
 	ClearBackground(LIGHTGRAY);
 	DrawRectangle(0, 0, 1920, 120, DARKBLUE);
-	DrawTextEx(font, TextFormat("Hello, %s", user), Vector2{ 150, 200 }, 100, 10, BLACK);
+	DrawTextEx(font, TextFormat("Hello, %s", loggedUsername.c_str()), Vector2{ 150, 200 }, 100, 10, BLACK);
 	DrawRectangleRounded(balanceRec, 0.2, 0, WHITE); //balance rectangle
 	DrawRectangleRoundedLines(balanceRec, 0.2, 0, 5, BLACK); // balance rectangle lines
 	DrawTextEx(font, "MyWill Balance", Vector2{ 270, 400 }, 80, 1, BLACK);
@@ -28,9 +32,9 @@ void WalletMenu(const char* user, float currentBalance, int fontSize, Font font,
 	DrawRectangleRoundedLines(assetRec, 0.2, 0, 5, BLACK); // asset rectangle line
 	DrawRectangleRounded({ 1050, 210, 280,80 }, 0.2, 0, c5);
 	DrawRectangleRoundedLines({ 1050, 210, 280,80 }, 0.2, 0,5, BLACK);
-	DrawRectangleRounded({ 1450, 210, 280,80 }, 0.2, 0, c6);
-	DrawRectangleRoundedLines({ 1450, 210, 280,80 }, 0.2, 0, 5, BLACK);
-	DrawRectangleRounded({ 1250, 915, 280,80 }, 0.2, 0, c7);
+	DrawRectangleRounded({ 1470, 210, 280,80 }, 0.2, 0, c6);
+	DrawRectangleRoundedLines({ 1470, 210, 280,80 }, 0.2, 0, 5, BLACK);
+	DrawRectangleRounded({ 1250, 910, 280,80 }, 0.2, 0, c7);
 	DrawRectangleRoundedLines({ 1250, 910, 280,80 }, 0.2, 0, 5, BLACK);
 	DrawRectangleRounded({20, 30, 280,80 }, 0.2, 0, c1);
 	DrawRectangleRoundedLines({ 20, 30, 280,80 }, 0.2, 0, 5, BLACK);
@@ -44,14 +48,32 @@ void WalletMenu(const char* user, float currentBalance, int fontSize, Font font,
 	DrawTextEx(font, "Manage Will", Vector2{ 370, 45 }, 50, 1, BLACK);
 	DrawTextEx(font, "Exit", Vector2{ 1700, 40 }, 60, 1, BLACK);
 	DrawTextEx(font, "Assets", Vector2{ 1115, 220 }, 60, 1, BLACK);
-	DrawTextEx(font, "Liabilities", Vector2{ 1490, 220 }, 60, 1, BLACK);
+	DrawTextEx(font, "Liabilities", Vector2{ 1510, 220 }, 60, 1, BLACK);
 	DrawTextEx(font, "Add New", Vector2{ 1290, 925}, 60, 1, BLACK);
 	DrawTextEx(font, "Currently Available", Vector2{ 120, 680 }, 40, 5, DARKGRAY);
 	DrawTextEx(font, "Add Cash", { 380,775 }, 50, 5, BLACK);
+	DrawRectangleRounded({ 1020, 380, 755,120 }, 0.2, 0, WHITE);
+	DrawRectangleRoundedLines({ 1020, 380, 755,130 }, 0.2, 0, 3, BLACK);
+	DrawRectangleRounded({ 1020, 530, 755,120 }, 0.2, 0, WHITE);
+	DrawRectangleRoundedLines({ 1020, 530, 755,130 }, 0.2, 0, 3, BLACK);
+	DrawRectangleRounded({ 1020, 680, 755,120 }, 0.2, 0, WHITE);
+	DrawRectangleRoundedLines({ 1020, 680, 755,130 }, 0.2, 0, 3, BLACK);
+	DrawTriangle({ 1400, 320 }, { 1360,370 }, { 1440,370 }, DARKBLUE);
+	DrawTexture(triangle, 1360, 820, RAYWHITE);
+	DrawTextEx(font, assets[assetCounter], { 1020, 380 }, 100, 0, BLACK);
+	DrawTextEx(font, assets[assetCounter+1], { 1020, 530 }, 100, 0, BLACK);
+	DrawTextEx(font, assets[assetCounter+2], { 1020, 680 }, 100, 0, BLACK);
 	DrawLineBezier(Vector2{ 1000, 300 }, Vector2{ 1800, 300 }, 5, BLACK); // split line top
 	DrawLineBezier(Vector2{ 1000,900 }, Vector2{ 1800,900 }, 5, BLACK); // split line bottom
 	DrawLineBezier(Vector2{ 100,500 }, Vector2{ 900,500 }, 5, BLACK);
 	DrawLineBezier(Vector2{ 0,120 }, Vector2{ 1920,120 }, 7, BLACK);
-
 	EndDrawing();
-}	
+}
+
+void addAsset()
+{
+	string temp;
+	cout << "Enter New Asset: " << endl;
+	cin >> temp;
+    assets.push_back(temp.c_str());
+}

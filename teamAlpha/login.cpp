@@ -8,6 +8,7 @@ bool isSelectedUser, isSelectedPass, isSelectedButton;
 string textInputUser = "";
 string textInputPass = "";
 int letterCountUser = 0, letterCountPass = 0;
+string loggedUsername;
 void LoginMenu(const char* user, float currentBalance, int fontSize, Font font)
 {
 	Color c, c1, c2;
@@ -88,6 +89,10 @@ bool isLoginValid()
 		}
 		else passLineNum++;
 	}
-	if (userLineNum == passLineNum && passLineNum != 0 && userLineNum != 0)  return true;
+	if (userLineNum == passLineNum && passLineNum != 0 && userLineNum != 0)
+	{
+		loggedUsername = textInputUser;
+		return true;
+	}
 	return false;
 }

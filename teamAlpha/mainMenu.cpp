@@ -13,6 +13,6 @@ void MainMenu(Texture2D loginButton, Texture2D regButton, Texture2D recoverButto
     DrawTexture(recoverButton, 1920.0f / 1.9f, 650, WHITE);
     DrawTextEx(font, "Recover Assets", Vector2{ 1920.0f / 1.87f, 690 }, 45, 10, BLACK);
     DrawTexture(pLogo, 400, 300, WHITE);
-    DrawTextEx(font, "The platform where you can manage your assets and create your digital will fast and easy", Vector2{ 250, 1000 }, 30, 7, BLACK);
+    DrawTextEx(font, "The platform where you can manage your assets and create your digital will fast and easy", Vector2{ 200, 1000 }, 30, 7, BLACK);
     EndDrawing();
 }
