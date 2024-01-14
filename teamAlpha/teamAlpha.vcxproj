@@ -143,7 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="myWill.h" />
-    <ClInclude Include="recoverAss.h" />
+    <ClInclude Include="recoverAssets.h" />
     <ClInclude Include="wallet.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="mainMenu.h" />

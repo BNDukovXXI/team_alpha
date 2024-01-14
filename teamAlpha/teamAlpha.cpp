@@ -5,13 +5,13 @@
 #include "wallet.h"
 #include "login.h"
 #include "signUp.h"
-#include "recoverAss.h"
+#include "recoverAssets.h"
 #include "myWill.h"
 using namespace std;
 
 int main()
 {
-    
+
     int balance = 10;
     int fontSize = 105;
     if (balance < 1000) fontSize = 115;
@@ -69,13 +69,15 @@ int main()
             else isSelectedPass = false;
             if (CheckCollisionRecs(login_signupButtonRec, mousePos)) isSelectedButton = true; else isSelectedButton = false;
             if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
-            else SetMouseCursor(MOUSE_CURSOR_ARROW); 
+            else SetMouseCursor(MOUSE_CURSOR_ARROW);
             if (isSelectedButton && isClicked) {
-                appState = 0; textInputPass = ""; textInputUser = "";
+                if (isLoginValid()) cout << "Login Successful";
+                else cout << "Not successful";
+                appState = 4; textInputPass = ""; textInputUser = "";
             }
             break;
-            
-        case 2: 
+
+        case 2:
             SignUpMenu("User", balance, fontSize, font1); SetMouseCursor(MOUSE_CURSOR_ARROW);
             if (CheckCollisionRecs(userRec, mousePos)) isSelectedUser = true;
             else isSelectedUser = false;
@@ -85,6 +87,7 @@ int main()
             if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
             else SetMouseCursor(MOUSE_CURSOR_ARROW);
             if (isSelectedButton && isClicked) {
+                createAccount();
                 appState = 0; textInputUser = ""; textInputPass = "";
             }
             break;
@@ -97,12 +100,38 @@ int main()
             if (isSelectedPass || isSelectedUser || isSelectedButton) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
             else SetMouseCursor(MOUSE_CURSOR_ARROW);
             if (isSelectedButton && isClicked) {
-                appState = 5; textInputUser = ""; textInputPass = "";
+                appState = 0; textInputUser = ""; textInputPass = "";
             }
             break;
-        case 5: myWill(font1); break;
+        case 4:
+            WalletMenu("User", balance, fontSize, font1, triangle);
+            if (CheckCollisionRecs(exitBtn, mousePos)) isSelectedExitBtn = true; else isSelectedExitBtn = false;
+            if (CheckCollisionRecs(manageBtn, mousePos)) isSelectedManageBtn = true; else isSelectedManageBtn = false;
+            if (CheckCollisionRecs(walletBtn, mousePos)) isSelectedWalletBtn = true; else isSelectedWalletBtn = false;
+            if (CheckCollisionRecs(addBtn, mousePos)) isSelectedAddBtn = true; else isSelectedAddBtn = false;
+            if (CheckCollisionRecs(liabBtn, mousePos)) isSelectedLiabBtn = true; else isSelectedLiabBtn = false;
+            if (CheckCollisionRecs(assetBtn, mousePos)) isSelectedAssetBtn = true; else isSelectedAssetBtn = false;
+            if (CheckCollisionRecs(addCash, mousePos)) isSelectedAddCash = true; else isSelectedAddCash = false;
+            if (isSelectedExitBtn || isSelectedManageBtn || isSelectedWalletBtn || isSelectedAddBtn || isSelectedLiabBtn || isSelectedAssetBtn || isSelectedAddCash || isSelectedTriangleTop || isSelectedTriangleBottom) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+            else SetMouseCursor(MOUSE_CURSOR_ARROW);
+            if (isSelectedExitBtn && isClicked) goto close;
+            if (CheckCollisionRecs(topTriangleBtn, mousePos)) isSelectedTriangleTop = true; else isSelectedTriangleTop = false;
+            if (CheckCollisionRecs(botTriangleBtn, mousePos)) isSelectedTriangleBottom = true; else isSelectedTriangleBottom = false;
+            if (isSelectedTriangleTop && isClicked && assetCounter != 0) assetCounter--;
+            if (isSelectedTriangleBottom && isClicked && assetCounter < 3) assetCounter++;
+            if (isSelectedManageBtn && isClicked) appState = 5;
+            break;
+        case 5:
+            myWill(font1);
+            if (CheckCollisionRecs(walletBtn, mousePos)) isSelectedWalletBtn = true; else isSelectedWalletBtn = false;
+            if (isSelectedWalletBtn && isClicked) appState = 4;
+            if (isSelectedWalletBtn || isSelectedManageBtn) SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+            else SetMouseCursor(MOUSE_CURSOR_ARROW);
+            break;
         default: appState = 0;
         }
+
     }
-    CloseWindow(); 
-} 
+close:
+    CloseWindow();
+}

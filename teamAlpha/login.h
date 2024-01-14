@@ -5,3 +5,4 @@ extern bool isSelectedButton;
 extern std::string textInputUser;
 extern std::string textInputPass;
 void LoginMenu(const char* user, float currentBalance, int fontSize, Font font);
+bool isLoginValid();

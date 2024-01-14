@@ -1,9 +1,11 @@
 #include <iostream>
 #include <raylib.h>
 #include "login.h"
+#include <fstream>
 using namespace std;
 int letterCountUser1 = 0, letterCountPass1 = 0;
-void SignUpMenu(const char* user, float currentBalance, int fontSize,Font font)
+
+void SignUpMenu(const char* user, float currentBalance, int fontSize, Font font)
 {
 	Color c, c1, c2;
 	if (isSelectedUser) c = LIGHTGRAY; else c = RAYWHITE;
@@ -31,10 +33,10 @@ void SignUpMenu(const char* user, float currentBalance, int fontSize,Font font)
 	DrawRectangleRounded(Rectangle{ 650, 600, 600, 85 }, 0.2, 0, c1); // password rec
 	DrawRectangleRounded(Rectangle{ 850, 775, 200, 85 }, 0.2, 0, c2); // Sign Up button rec
 
-    DrawRectangleRoundedLines(Rectangle{ 600, 200, 700, 700 }, 0.2, 0, 7, BLACK); // Container Lines
+	DrawRectangleRoundedLines(Rectangle{ 600, 200, 700, 700 }, 0.2, 0, 7, BLACK); // Container Lines
 	DrawRectangleRoundedLines(Rectangle{ 650, 475, 600, 85 }, 0.2, 0, 5, BLACK); // Username Rec Lines
 	DrawRectangleRoundedLines(Rectangle{ 650, 600, 600, 85 }, 0.2, 0, 5, BLACK); // Password Rec Lines
-    DrawRectangleRoundedLines(Rectangle{ 850, 775, 200, 85 }, 0.2, 0, 5, BLACK); // Sign up button Lines
+	DrawRectangleRoundedLines(Rectangle{ 850, 775, 200, 85 }, 0.2, 0, 5, BLACK); // Sign up button Lines
 	DrawTextEx(font, "Create A New Account", Vector2{ 670, 300 }, 60, 5, BLACK);
 	if (!isSelectedUser && textInputUser.length() == 0) DrawTextEx(font, "Username", Vector2{ 860, 500 }, 40, 5, DARKGRAY);
 	if (!isSelectedPass && textInputPass.length() == 0) DrawTextEx(font, "Password", Vector2{ 860, 625 }, 40, 5, DARKGRAY);
@@ -42,4 +44,23 @@ void SignUpMenu(const char* user, float currentBalance, int fontSize,Font font)
 	DrawTextEx(font, userText, Vector2{ 670, 500 }, 40, 0, BLACK);
 	DrawTextEx(font, passwordText, Vector2{ 670, 625 }, 40, 0, BLACK);
 	EndDrawing();
+}
+void createAccount()
+{
+	ofstream usernameFile("data\\Usernames.txt", ios::app);
+	ofstream passwordFile("data\\Passwords.txt", ios::app);
+	if (usernameFile.is_open()) {
+		usernameFile << textInputUser << endl;
+		usernameFile.close();
+	}
+	else {
+		cerr << "Error opening usernames file." << endl;
+	}
+	if (passwordFile.is_open()) {
+		passwordFile << textInputPass << endl;
+		passwordFile.close();
+	}
+	else {
+		cerr << "Error opening password file." << endl;
+	}
 }
