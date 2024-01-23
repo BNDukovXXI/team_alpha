@@ -37,7 +37,7 @@ You can install our project by using this link:
 
 
 ## <img align="center" src="https://cdn-icons-png.flaticon.com/512/3396/3396255.png" width="30">   Documents
-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg.png?20210821050414" width="20">  [Presentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/innedkova21_codingburgas_bg/EfYBDGwMcz1LvoYm_7gMsiEBuOYj08P2Gx6oywiZP-9mqg?e=KMo55S)
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg.png?20210821050414" width="20">  [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/innedkova21_codingburgas_bg/EVXyL_gS_ilMpEO2R8Ih4LIBxYQYCgXsg6MKs2CXL7_IoA?e=fc0Znn)
 - <img src="https://findicons.com/files/icons/2795/office_2013_hd/2000/word.png" width="20"> [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/innedkova21_codingburgas_bg/EfYBDGwMcz1LvoYm_7gMsiEBuOYj08P2Gx6oywiZP-9mqg?e=KMo55S)
 
 
